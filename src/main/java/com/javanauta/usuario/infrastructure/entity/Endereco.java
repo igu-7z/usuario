@@ -3,8 +3,6 @@ package com.javanauta.usuario.infrastructure.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
-
 @Getter
 @Setter
 @AllArgsConstructor
@@ -29,8 +27,6 @@ public class Endereco {
     private String estado;
     @Column(name = "cep", length = 9)
     private String cep;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
-    private List<Telefone> telefones;
-
+    @Column(name = "usuario_id")
+    private Long usuario_id;
 }
